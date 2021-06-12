@@ -248,6 +248,50 @@ a {
   cursor: pointer;
 }
 
+/* модалка */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 528px;
+  min-height: 581px;
+  background-color: white;
+}
+
+/* кнопка закрыть модальное окно */
+.modal-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e6e6e6;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 /* our-values */
 .our-values {
   background-color: var(--white);
@@ -716,12 +760,38 @@ footer {
   margin-bottom: 0px;
 }
 
+/* выезжает окно на карточку */
 .project-overlay-img {
   position: relative;
+  overflow: hidden;
 }
 
-/* выезжает окно на карточку */
+.project-overlay-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+}
 
+.project-parts:hover .project-overlay-text {
+  transform: translateY(0);
+}
 /* выезжает окно на карточку */
 
 .project-about {
@@ -745,74 +815,4 @@ footer {
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.03em;
-}
-
-.project-parts {
-  overflow: hidden;
-}
-
-/* тест */
-.project-overlay-text {
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(33, 150, 243, 0.9);
-
-  transform: translateY(100%);
-
-  opacity: 0;
-
-  transition: transform 10000ms;
-}
-
-.project-parts:hover .project-overlay-text {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/*текст */
-.project-overlay-text {
-  color: rgb(255, 255, 255);
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.556;
-  letter-spacing: 0.03em;
-  display: flex;
-  align-items: center;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* модалка */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.backdrop.is-hiden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 528px;
-  height: 581px;
-
-  background-color: white;
 }
