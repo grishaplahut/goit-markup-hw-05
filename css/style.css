@@ -782,11 +782,10 @@ footer {
   font-size: 18px;
   line-height: 1.556;
   letter-spacing: 0.03em;
-  display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 24px;
-  padding-right: 24px;
+  overflow: auto;
+  padding: 63px 24px 63px 24px;
 }
 
 .project-parts:hover .project-overlay-text {
